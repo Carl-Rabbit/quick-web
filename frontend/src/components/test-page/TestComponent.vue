@@ -1,7 +1,7 @@
 <template>
     <div class="hello" style="height: 900px;">
         <el-row style="height: 55%">
-            <el-col :span="3" style="height: 100%" class="boundary">
+            <el-col :span="3" style="height: 100%; text-align: left" class="boundary" >
                 <el-form ref="form" label-width="80px">
                     <el-form-item label="Radius">
                         <el-input-number size="mini" :min="3" v-model="radius"></el-input-number>
