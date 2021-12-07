@@ -3,6 +3,7 @@ import {testService} from '@/service';
 // initial state
 const state = () => ({
   counter: 0,
+  graph: undefined
 })
 
 // getters
@@ -15,6 +16,11 @@ const actions = {
     testService.updateCounter({counter: state.counter}, resp => {
       commit('changeCounter', resp.counter);
     })
+  },
+  fetchData({commit}) {
+    testService.fetchData({commit}, resp => {
+      commit('updateData', resp)
+    })
   }
 }
 
@@ -22,8 +28,12 @@ const actions = {
 const mutations = {
   changeCounter(state, newCounter) {
     state.counter = newCounter;
+  },
+  updateData(state, data){
+    state.graph = data
   }
 }
+
 
 export default {
   namespaced: true,
