@@ -4,7 +4,7 @@
 
 Before running any command
 ```
-cd /frontend
+cd <PROJECT_ROOT>/frontend
 ```
 
 ### Setup
@@ -44,7 +44,7 @@ Default frontend server port can also be changed here.
 
 Before running any command
 ```
-cd /backend
+cd <PROJECT_ROOT>/backend
 ```
 ### Set up
 ```
