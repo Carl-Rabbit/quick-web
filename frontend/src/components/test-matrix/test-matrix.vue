@@ -19,8 +19,8 @@
             <circle v-for="(n, i) in nodes" :key="i" :cx="margin - 10" :cy="yScale(i)"
                     :r="n.node.selected? 3 * 1.5 : 3"
                     :fill="getFill(n)" stroke="white"
-                    @mouseover="mouseover(n)"
-                    @mouseout="mouseout(n)"
+                    @mouseover="mouseover(n.node)"
+                    @mouseout="mouseout(n.node)"
             ></circle>
         </g>
         <g>
@@ -68,12 +68,6 @@ export default {
         }
     },
     methods:{
-        mouseover(node){
-            node.node.selected = true
-        },
-        mouseout(node){
-            node.node.selected = false
-        },
         getFill(node){
             return node.node.selected? 'red' : this.fill
         }
