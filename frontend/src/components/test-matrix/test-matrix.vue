@@ -41,11 +41,12 @@
 <script>
 import * as d3 from "d3";
 import Cell from "@/components/test-matrix/cell";
-
+import methodMixin from "@/components/test-mixin";
 export default {
     components: {Cell},
     props: ['counter', 'nodes', 'links', 'fill', 'linkStroke'],
     name: "test-nodelink",
+    mixins: [methodMixin],
     data() {
         return {
             xScale: d3.scaleLinear(),

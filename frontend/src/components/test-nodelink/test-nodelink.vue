@@ -23,10 +23,12 @@
 <script>
 import * as d3 from "d3";
 import pipeService from "@/service/pipeService";
+import methodMixin from "@/components/test-mixin";
 
 export default {
     props: ['counter', 'nodes', 'links', 'r', 'fill', 'linkStroke'],
     name: "test-nodelink",
+    mixins:[methodMixin],
     data() {
         return {
             simHandler: undefined
@@ -79,12 +81,6 @@ export default {
                 .force("link", d3.forceLink(links).id(d => d.id))
                 .force("charge", d3.forceManyBody())
                 .force("center", d3.forceCenter(this.$el.clientWidth / 2, this.$el.clientHeight / 2))
-        },
-        mouseover(node) {
-            node.selected = true
-        },
-        mouseout(node) {
-            node.selected = false
         },
         getFill(node) {
             return node.selected ? 'red' : this.fill
