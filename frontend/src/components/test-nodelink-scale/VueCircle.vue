@@ -1,7 +1,7 @@
 <template>
     <g :transform="transform">
         <circle  :fill="fillColor"
-                 :r="node.selected? radius* 1.5 :radius"
+                 :r="node.selected? radius* 1.5 :radius" :stroke="'white'"
         ></circle>
         <g>
             <text style="font-size: 10px; pointer-events:none">

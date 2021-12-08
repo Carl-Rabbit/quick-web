@@ -58,8 +58,6 @@ export default {
         function drag(simulation, d) {
             function dragstarted(event) {
                 if (!event.active) simulation.alphaTarget(0.3).restart();
-                event.subject.fx = event.subject.x;
-                event.subject.fy = event.subject.y;
             }
 
             function dragged(event) {
@@ -69,8 +67,6 @@ export default {
 
             function dragended(event) {
                 if (!event.active) simulation.alphaTarget(0);
-                event.subject.fx = null;
-                event.subject.fy = null;
             }
 
             return d3.drag()
@@ -83,9 +79,10 @@ export default {
         let zoom = d3.zoom()
             .scaleExtent([0, 5])
             .on('zoom',  (event)=>{
-                // this.xScale = event.transform.rescaleX(this.rxScale)
-                // this.yScale = event.transform.rescaleY(this.ryScale)
-                this.svg.select('#container').attr('transform', event.transform);
+                this.xScale = event.transform.rescaleX(this.rxScale)
+                this.yScale = event.transform.rescaleY(this.ryScale)
+
+                // this.svg.select('#container').attr('transform', event.transform);
             });
         this.svg.call(zoom);
 

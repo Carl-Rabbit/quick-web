@@ -1,4 +1,4 @@
-import {testService} from '@/service';
+import {dataService} from '@/service';
 
 // initial state
 const state = () => ({
@@ -13,12 +13,12 @@ const getters = {
 // actions
 const actions = {
   updateCounter({ state, commit }) {
-    testService.updateCounter({counter: state.counter}, resp => {
+    dataService.updateCounter({counter: state.counter}, resp => {
       commit('changeCounter', resp.counter);
     })
   },
   fetchData({commit}) {
-    testService.fetchData({commit}, resp => {
+    dataService.fetchData({commit}, resp => {
       commit('updateData', resp)
     })
   }
