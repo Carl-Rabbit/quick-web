@@ -6,8 +6,8 @@
                 <circle v-for="(n, i) in nodes" :key="i" :cx="xScale(i)" :cy="margin - 10"
                         :r="n.node.selected? 3 * 1.5 : 3" stroke="white"
                         :fill="getFill(n)"
-                        @mouseover="mouseover(n)"
-                        @mouseout="mouseout(n)"
+                        @mouseover="mouseover(n.node)"
+                        @mouseout="mouseout(n.node)"
                 ></circle>
             </g>
             <g>
