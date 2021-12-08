@@ -44,7 +44,8 @@ export default {
     mounted() {
         const _this = this
         this.updateLayout()
-        pipeService.onRunSimulation(() => {
+        pipeService.onRunSimulation((msg) => {
+            console.log('msg', msg)
             this.simHandler.alpha(1).restart()
         })
 
@@ -79,10 +80,10 @@ export default {
         let zoom = d3.zoom()
             .scaleExtent([0, 5])
             .on('zoom',  (event)=>{
-                this.xScale = event.transform.rescaleX(this.rxScale)
-                this.yScale = event.transform.rescaleY(this.ryScale)
+                // this.xScale = event.transform.rescaleX(this.rxScale)
+                // this.yScale = event.transform.rescaleY(this.ryScale)
 
-                // this.svg.select('#container').attr('transform', event.transform);
+                this.svg.select('#container').attr('transform', event.transform);
             });
         this.svg.call(zoom);
 
@@ -96,6 +97,7 @@ export default {
                 .force("link", d3.forceLink(links).id(d => d.id))
                 .force("charge", d3.forceManyBody())
                 .force("center", d3.forceCenter(this.$el.clientWidth / 2, this.$el.clientHeight / 2))
+            console.log('nodes', nodes)
         },
         getFill(node) {
             return node.selected ? 'red' : this.fill

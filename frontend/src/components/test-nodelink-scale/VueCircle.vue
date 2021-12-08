@@ -27,6 +27,14 @@ export default {
         },
         fillColor(){
             return this.node.selected ? 'red' : this.fill
+        },
+        selected(){
+            return this.node.selected;
+        }
+    },
+    watch:{
+        selected(newVal, oldVal){
+            console.log('watched', newVal, oldVal)
         }
     }
 }

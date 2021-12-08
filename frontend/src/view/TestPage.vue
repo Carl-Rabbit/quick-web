@@ -27,7 +27,6 @@ export default {
     },
     mounted(){
         this.$store.dispatch('test/fetchData');
-
     },
     computed: {
         ...mapState('test', {
@@ -46,7 +45,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 .boundary {
     /*border-style: dashed;*/
     border-style: solid;

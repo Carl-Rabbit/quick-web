@@ -8,7 +8,6 @@ var pipeService = new Vue({
         SIMULATION: 'simulation'
 
     },
-
     methods:{
         emitRunSimulation: function(msg){
             this.$emit(this.SIMULATION, msg);
