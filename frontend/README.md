@@ -1,6 +1,9 @@
-# frontend
-
 ## Project setup
+
+Install Nodejs
+
+https://nodejs.org/en/
+
 ```
 npm install
 ```

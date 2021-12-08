@@ -5,6 +5,7 @@ const methodMixin = {
     },
     methods:{
         mouseover(node) {
+            console.log('mouseover')
             node.selected = true
         },
         mouseout(node) {

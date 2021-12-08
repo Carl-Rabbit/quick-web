@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import TestNodelink from "@/components/test-nodelink/test-nodelink";
+import TestNodelink from "@/components/test-nodelink-scale/test-nodelink";
 import TestMatrix from "@/components/test-matrix/test-matrix"
 import Barchart from "@/components/test-barchart/Barchart";
 import * as d3 from "d3";
@@ -84,7 +84,6 @@ export default {
     },
     computed:{
         renderNodes() {
-            console.log('rr')
             let idCount = {}
             this.links.forEach(link => {
                 let sourceId = typeof link.source === 'object' ? link.source.id : link.source

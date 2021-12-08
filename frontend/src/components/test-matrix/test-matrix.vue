@@ -1,38 +1,40 @@
 <template>
     <svg>
         <!-- upper label-->
-        <g>
-            <circle v-for="(n, i) in nodes" :key="i" :cx="xScale(i)" :cy="margin - 10"
-                    :r="n.selected? 3 * 1.5 : 3" stroke="white"
-                    :fill="getFill(n)"
-                    @mouseover="mouseover(n)"
-                    @mouseout="mouseout(n)"
-            ></circle>
-        </g>
-        <g>
-            <g v-for="(n, i) in nodes" :key="i" :transform="'translate(' + [xScale(i), margin-15] + ')'">
-                <text style="font-size: 6px" transform="rotate(-90)">{{ n.id }}</text>
+        <g id="container">
+            <g>
+                <circle v-for="(n, i) in nodes" :key="i" :cx="xScale(i)" :cy="margin - 10"
+                        :r="n.node.selected? 3 * 1.5 : 3" stroke="white"
+                        :fill="getFill(n)"
+                        @mouseover="mouseover(n)"
+                        @mouseout="mouseout(n)"
+                ></circle>
             </g>
-        </g>
-        <!-- left label -->
-        <g>
-            <circle v-for="(n, i) in nodes" :key="i" :cx="margin - 10" :cy="yScale(i)"
-                    :r="n.node.selected? 3 * 1.5 : 3"
-                    :fill="getFill(n)" stroke="white"
-                    @mouseover="mouseover(n.node)"
-                    @mouseout="mouseout(n.node)"
-            ></circle>
-        </g>
-        <g>
-            <g v-for="(n, i) in nodes" :key="i" :transform="'translate(' + [5, yScale(i)] + ')'">
-                <text style="font-size: 6px" transform="rotate(0)">{{ n.id }}</text>
+            <g>
+                <g v-for="(n, i) in nodes" :key="i" :transform="'translate(' + [xScale(i), margin-15] + ')'">
+                    <text style="font-size: 6px" transform="rotate(-90)">{{ n.id }}</text>
+                </g>
             </g>
-        </g>
-        <!-- cells -->
-        <g>
-            <g  v-for="(link, j) in links" :key="j">
-                <cell :link="link"
-                      :xScale="xScale" :yScale="yScale" :fill="linkStroke" :id2Index="id2Index"></cell>
+            <!-- left label -->
+            <g>
+                <circle v-for="(n, i) in nodes" :key="i" :cx="margin - 10" :cy="yScale(i)"
+                        :r="n.node.selected? 3 * 1.5 : 3"
+                        :fill="getFill(n)" stroke="white"
+                        @mouseover="mouseover(n.node)"
+                        @mouseout="mouseout(n.node)"
+                ></circle>
+            </g>
+            <g>
+                <g v-for="(n, i) in nodes" :key="i" :transform="'translate(' + [5, yScale(i)] + ')'">
+                    <text style="font-size: 6px" transform="rotate(0)">{{ n.id }}</text>
+                </g>
+            </g>
+            <!-- cells -->
+            <g>
+                <g  v-for="(link, j) in links" :key="j">
+                    <cell :link="link"
+                          :xScale="xScale" :yScale="yScale" :fill="linkStroke" :id2Index="id2Index"></cell>
+                </g>
             </g>
         </g>
     </svg>
