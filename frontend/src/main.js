@@ -5,6 +5,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en'
 Vue.config.productionTip = false
+
+// Plugin 用法↓， 类似的用法还有mixins, extend方法
 Vue.use(ElementUI, {locale})
 
 import router from '@/router'
