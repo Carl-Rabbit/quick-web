@@ -1,0 +1,338 @@
+{
+    "00010_1": {
+        "BS02206D": [
+            {
+                "station_id": "A0C0022",
+                "stop_order": "1",
+                "arrive_time": "2021-11-01 09:00:00"
+            },
+            {
+                "station_id": "C_NH0091",
+                "stop_order": "2",
+                "arrive_time": "2021-11-01 09:03:12"
+            },
+            {
+                "station_id": "C_NH0098",
+                "stop_order": "3",
+                "arrive_time": "2021-11-01 09:07:30"
+            },
+            {
+                "station_id": "C_NH0058",
+                "stop_order": "4",
+                "arrive_time": "2021-11-01 09:11:31"
+            },
+            {
+                "station_id": "C_DM0013",
+                "stop_order": "5",
+                "arrive_time": "2021-11-01 09:15:00"
+            },
+            {
+                "station_id": "C_DM0001",
+                "stop_order": "6",
+                "arrive_time": "2021-11-01 09:19:45"
+            },
+            {
+                "station_id": "C_SG0035",
+                "stop_order": "7",
+                "arrive_time": "2021-11-01 09:22:21"
+            },
+            {
+                "station_id": "C_SG0027",
+                "stop_order": "8",
+                "arrive_time": "2021-11-01 09:27:42"
+            },
+            {
+                "station_id": "C_SG0039",
+                "stop_order": "9",
+                "arrive_time": "2021-11-01 09:30:56"
+            },
+            {
+                "station_id": "C_CZ0012",
+                "stop_order": "10",
+                "arrive_time": "2021-11-01 09:35:21"
+            },
+            {
+                "station_id": "C_CZ0061",
+                "stop_order": "11",
+                "arrive_time": "2021-11-01 09:38:11"
+            },
+            {
+                "station_id": "C_CZ0033",
+                "stop_order": "12",
+                "arrive_time": "2021-11-01 09:43:51"
+            },
+            {
+                "station_id": "C_CZ0036",
+                "stop_order": "13",
+                "arrive_time": "2021-11-01 09:48:11"
+            },
+            {
+                "station_id": "C_CZ0055",
+                "stop_order": "14",
+                "arrive_time": "2021-11-01 09:52:58"
+            },
+            {
+                "station_id": "C_HB0056",
+                "stop_order": "15",
+                "arrive_time": "2021-11-01 09:56:23"
+            },
+            {
+                "station_id": "B0C0011",
+                "stop_order": "16",
+                "arrive_time": "2021-11-01 10:01:45"
+            }
+        ],
+        "BS08691D": [
+            {
+                "station_id": "A0C0022",
+                "stop_order": "1",
+                "arrive_time": "2021-11-01 09:15:00"
+            },
+            {
+                "station_id": "C_NH0091",
+                "stop_order": "2",
+                "arrive_time": "2021-11-01 09:18:12"
+            },
+            {
+                "station_id": "C_NH0098",
+                "stop_order": "3",
+                "arrive_time": "2021-11-01 09:22:30"
+            },
+            {
+                "station_id": "C_NH0058",
+                "stop_order": "4",
+                "arrive_time": "2021-11-01 09:26:31"
+            },
+            {
+                "station_id": "C_DM0013",
+                "stop_order": "5",
+                "arrive_time": "2021-11-01 09:30:00"
+            },
+            {
+                "station_id": "C_DM0001",
+                "stop_order": "6",
+                "arrive_time": "2021-11-01 09:34:45"
+            },
+            {
+                "station_id": "C_SG0035",
+                "stop_order": "7",
+                "arrive_time": "2021-11-01 09:37:21"
+            },
+            {
+                "station_id": "C_SG0027",
+                "stop_order": "8",
+                "arrive_time": "2021-11-01 09:42:42"
+            },
+            {
+                "station_id": "C_SG0039",
+                "stop_order": "9",
+                "arrive_time": "2021-11-01 09:45:56"
+            },
+            {
+                "station_id": "C_CZ0012",
+                "stop_order": "10",
+                "arrive_time": "2021-11-01 09:50:21"
+            },
+            {
+                "station_id": "C_CZ0061",
+                "stop_order": "11",
+                "arrive_time": "2021-11-01 09:53:11"
+            },
+            {
+                "station_id": "C_CZ0033",
+                "stop_order": "12",
+                "arrive_time": "2021-11-01 09:58:51"
+            },
+            {
+                "station_id": "C_CZ0036",
+                "stop_order": "13",
+                "arrive_time": "2021-11-01 10:03:11"
+            },
+            {
+                "station_id": "C_CZ0055",
+                "stop_order": "14",
+                "arrive_time": "2021-11-01 10:07:58"
+            },
+            {
+                "station_id": "C_HB0056",
+                "stop_order": "15",
+                "arrive_time": "2021-11-01 10:11:23"
+            }
+        ]
+    },
+    "00010_2": {
+        "BS33833D": [
+            {
+                "station_id": "A0C0022",
+                "stop_order": "1",
+                "arrive_time": "2021-11-01 09:30:00"
+            },
+            {
+                "station_id": "C_NH0091",
+                "stop_order": "2",
+                "arrive_time": "2021-11-01 09:33:12"
+            },
+            {
+                "station_id": "C_NH0098",
+                "stop_order": "3",
+                "arrive_time": "2021-11-01 09:37:30"
+            },
+            {
+                "station_id": "C_NH0058",
+                "stop_order": "4",
+                "arrive_time": "2021-11-01 09:41:31"
+            },
+            {
+                "station_id": "C_DM0013",
+                "stop_order": "5",
+                "arrive_time": "2021-11-01 09:45:00"
+            },
+            {
+                "station_id": "C_DM0001",
+                "stop_order": "6",
+                "arrive_time": "2021-11-01 09:49:45"
+            },
+            {
+                "station_id": "C_SG0035",
+                "stop_order": "7",
+                "arrive_time": "2021-11-01 09:52:21"
+            },
+            {
+                "station_id": "C_SG0027",
+                "stop_order": "8",
+                "arrive_time": "2021-11-01 09:57:42"
+            },
+            {
+                "station_id": "C_SG0039",
+                "stop_order": "9",
+                "arrive_time": "2021-11-01 10:00:56"
+            },
+            {
+                "station_id": "C_CZ0012",
+                "stop_order": "10",
+                "arrive_time": "2021-11-01 10:05:21"
+            },
+            {
+                "station_id": "C_CZ0061",
+                "stop_order": "11",
+                "arrive_time": "2021-11-01 10:08:11"
+            },
+            {
+                "station_id": "C_CZ0033",
+                "stop_order": "12",
+                "arrive_time": "2021-11-01 10:13:51"
+            },
+            {
+                "station_id": "C_CZ0036",
+                "stop_order": "13",
+                "arrive_time": "2021-11-01 10:18:11"
+            }
+        ]
+    },
+    "00020_2": {
+        "BS01212D": [
+            {
+                "station_id": "A0C0022",
+                "stop_order": "1",
+                "arrive_time": "2021-11-01 10:00:00"
+            },
+            {
+                "station_id": "C_NH0091",
+                "stop_order": "2",
+                "arrive_time": "2021-11-01 10:03:12"
+            },
+            {
+                "station_id": "C_NH0098",
+                "stop_order": "3",
+                "arrive_time": "2021-11-01 10:07:30"
+            },
+            {
+                "station_id": "C_NH0058",
+                "stop_order": "4",
+                "arrive_time": "2021-11-01 10:11:31"
+            },
+            {
+                "station_id": "C_DM0013",
+                "stop_order": "5",
+                "arrive_time": "2021-11-01 10:15:00"
+            },
+            {
+                "station_id": "C_DM0001",
+                "stop_order": "6",
+                "arrive_time": "2021-11-01 10:19:45"
+            },
+            {
+                "station_id": "C_SG0035",
+                "stop_order": "7",
+                "arrive_time": "2021-11-01 10:22:21"
+            },
+            {
+                "station_id": "C_SG0027",
+                "stop_order": "8",
+                "arrive_time": "2021-11-01 10:27:42"
+            },
+            {
+                "station_id": "C_SG0039",
+                "stop_order": "9",
+                "arrive_time": "2021-11-01 10:30:56"
+            },
+            {
+                "station_id": "C_CZ0012",
+                "stop_order": "10",
+                "arrive_time": "2021-11-01 10:35:21"
+            }
+        ],
+        "BS01732D": [
+            {
+                "station_id": "A0C0022",
+                "stop_order": "1",
+                "arrive_time": "2021-11-01 10:15:00"
+            },
+            {
+                "station_id": "C_NH0091",
+                "stop_order": "2",
+                "arrive_time": "2021-11-01 10:18:12"
+            },
+            {
+                "station_id": "C_NH0098",
+                "stop_order": "3",
+                "arrive_time": "2021-11-01 10:22:30"
+            },
+            {
+                "station_id": "C_NH0058",
+                "stop_order": "4",
+                "arrive_time": "2021-11-01 10:26:31"
+            },
+            {
+                "station_id": "C_DM0013",
+                "stop_order": "5",
+                "arrive_time": "2021-11-01 10:30:00"
+            },
+            {
+                "station_id": "C_DM0001",
+                "stop_order": "6",
+                "arrive_time": "2021-11-01 10:34:45"
+            },
+            {
+                "station_id": "C_SG0035",
+                "stop_order": "7",
+                "arrive_time": "2021-11-01 10:37:21"
+            },
+            {
+                "station_id": "C_SG0027",
+                "stop_order": "8",
+                "arrive_time": "2021-11-01 10:42:42"
+            },
+            {
+                "station_id": "C_SG0039",
+                "stop_order": "9",
+                "arrive_time": "2021-11-01 10:45:56"
+            },
+            {
+                "station_id": "C_CZ0012",
+                "stop_order": "10",
+                "arrive_time": "2021-11-01 10:50:21"
+            }
+        ]
+    }
+}
