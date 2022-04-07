@@ -40,4 +40,17 @@ export default {
     border-color: #d3dce6;
     border-width: 1px;
 }
+
+.el-table .warning-row {
+    background: #a6cee3;
+}
+.boundary {
+    /*border-style: dashed;*/
+    border-style: solid;
+    border-color: #d3dce6;
+    border-width: 0.5px;
+    border-radius: 3px;
+}
+
+
 </style>

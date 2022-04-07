@@ -13,6 +13,7 @@
                 :selectedRoute="selectedRoute"
                 :contourList="contourList"
                 :currentTime="currentTime"
+                :dataConfig="dataConfig"
         ></Main>
     </div>
 </template>
@@ -47,15 +48,17 @@ export default {
             alldata: (state) => state.alldata,
             selectedRoute: (state) => state.selectedRoute,
             contourList: (state) => state.contourList,
-            currentTime: (state) => state.currentTime
+            currentTime: (state) => state.currentTime,
+            dataConfig: (state) => state.dataConfig,
         }),
 
         initSign(){
             return this.route && this.station && this.alldata
         },
         loadingText(){
-            return "Loading:    " + 'Route: \n' +
-                !!this.route + '   Station: \n'+ !!this.station + '   Alldata: \n'+ !!this.alldata
+            return "Loading"
+            // return "Loading:    " + 'Route: \n' +
+            //     !!this.route + '   Station: \n'+ !!this.station + '   Alldata: \n'+ !!this.alldata
         }
     }
 }
@@ -69,5 +72,6 @@ export default {
     border-width: 0.5px;
     border-radius: 3px;
 }
+
 
 </style>

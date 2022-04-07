@@ -3,12 +3,13 @@
         <svg style="height: 100%; width: 100%">
             <g class="container" :transform="containerTransform">
                 <g class="centerContainer">
+                    <rect :width="containerWidth" :height="containerHeight" fill="grey" fill-opacity="0.1"></rect>
                     <g class="timeContainer" v-for="(t,i) in contiContourCenter" :key="i">
                         <circle v-for="(c, j) in t.points" :key="j" r = 3 fill="#1f77b4" :cx="c.x" :cy="c.y"></circle>
                     </g>
                     <g class='pathContainer'>
                         <path v-for="(p, i) in centerConnection" :key="i" :d="p.path"
-                              fill="none" stroke="black" stroke-width="1"
+                              fill="none" stroke="#1f77b4" stroke-width="0.5"
                         ></path>
                     </g>
                 </g>
@@ -20,7 +21,7 @@
 
 <script>
 import * as d3 from "d3";
-// import pipeService from "@/service/pipeService";
+
 import {calIOU} from "@/service/module/dataService";
 
 export default {
@@ -32,9 +33,9 @@ export default {
 
             // canvas layout
             top: 20,
-            left: 20,
+            left: 30,
             right: 20,
-            bottom: 20,
+            bottom: 25,
 
             containerWidth: 0,
             containerHeight: 0,
@@ -107,6 +108,7 @@ export default {
             var xAxis = d3
                 .axisBottom(this.xScale)
                 .ticks(d3.timeMinute.every(30))
+                .tickSize(-1 * this.containerHeight)
                 .tickFormat((d)=>{
                     var date = new Date(d);
                     var mintue = date.getMinutes();
@@ -114,8 +116,11 @@ export default {
                         ? date.getHours() + ":" + date.getMinutes() + "0"
                         : null;
                 });
+            //
+            // xAxis.select("line")
+            //     .attr("stroke-width","10");
 
-            var yAxis = d3.axisLeft(this.yScale).tickFormat("");
+            var yAxis = d3.axisLeft(this.yScale).tickFormat("").tickSize(0);
 
             //把x轴应用到对应的SVG元素上
             g.append("g")
@@ -125,8 +130,14 @@ export default {
                     "translate(0," + (height - padding.top - padding.bottom) + ")"
                 )
                 .call(xAxis)
-                .selectAll("text")
-                .style("font-size", "10px");
+                .call(g => g.select(".domain")
+                    .remove())
+                .call(g => g.selectAll(".tick:not(:first-of-type) line")
+                    .attr("stroke-opacity", 0.5)
+                    .attr("stroke-width", 1)
+                    .attr("stroke-dasharray", "3,3"))
+                // .selectAll("text")
+
             //把y轴应用到对应的SVG元素上
             g.append("g").attr("class", "yaxis").call(yAxis);
             //添加点和线的group
@@ -161,14 +172,14 @@ export default {
 
                 var date = new Date(d1[0]);
                 var currentTime = date.getHours() + ":" + date.getMinutes() + ":00";
-                console.log('brush  end', currentTime)
                 _this.setCurrentTime(currentTime)
             }
-
+            let currentDate = new Date()
+            let currentRegionSize = xscale(new Date(currentDate.getTime() + 1800000)) - xscale(currentDate)
             g.append("g")
                 .attr("class", "brush")
                 .call(brush)
-                .call(brush.move, [padding.left, 100]);
+                .call(brush.move, [padding.left, currentRegionSize]);
         },
         getContiContourCenter(new_vals){
             // 计算contour位置 TODO

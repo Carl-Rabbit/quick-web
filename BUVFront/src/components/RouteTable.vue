@@ -6,6 +6,7 @@
                   style="width: 100%"
 
                   :height="tableHeight"
+                  :row-class-name="tableRowClassName"
                   :default-sort = "{prop: 'route_id', order: 'descending'}"
 
                   @row-click="rowClick"
@@ -46,17 +47,28 @@ export default {
     props:['alldata'],
     data(){
         return {
-            tableHeight: undefined
+            tableHeight: undefined,
+            selectedIndex: -1,
+            selectedRow: undefined,
         }
     },
     mounted(){
         this.tableHeight=this.$el.clientHeight
-        console.log('elelel', this.$el.clientHeight, this.$el.clientWidth)
-        console.log('height', this.tableHeight)
     },
     methods:{
         rowClick(row){
+            if(this.selectedRow == row){
+                this.selectedRow = undefined
+            }else{
+                 this.selectedRow = row
+            }
             this.$store.commit('test/selectRoute', row)
+        },
+        tableRowClassName(data) {
+            if (data.row === this.selectedRow) {
+                return 'warning-row';
+            }
+            return '';
         }
     },
     computed: {
@@ -100,5 +112,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>

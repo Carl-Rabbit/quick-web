@@ -2,8 +2,13 @@ import {dataService} from '@/service';
 
 // initial state
 const state = () => ({
-  counter: 0,
-  graph: undefined,
+  dataConfig: {
+    dataName: 'Shenzhen Taxi',
+    startTime: '2021.11.01',
+    endTime: '2021.11.31',
+    nRoute: 135,
+    nStop: 1068
+  },
 
   route: undefined, //需要route,丢一个route进去
   station: undefined,

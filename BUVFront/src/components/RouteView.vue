@@ -16,7 +16,8 @@ export default {
     data(){
         return {
             containerWidth: 0,
-            containerHeight: 0
+            containerHeight: 0,
+            color: 'red'
         }
     },
     mounted(){
@@ -32,8 +33,10 @@ export default {
             // console.log(this.routeinfo )
             if (rowdata["type"] == "up") {
                 var routeid = rowdata["route_id"] + "/1";
+                this.color = '#ff7f0e'
             } else {
                 routeid = rowdata["route_id"] + "/2";
+                this.color = '#1f77b4'
             }
             d3.select("#line_view").selectAll("svg").remove();
             var rawdata = [];
@@ -59,6 +62,11 @@ export default {
                 .append("svg")
                 .attr("width", this.containerWidth)
                 .attr("height", this.containerHeight);
+            svg.append('rect').attr('x', padding.left).attr('y', padding.top)
+                .attr('width', this.containerWidth - padding.left - padding.right)
+                .attr('height', this.containerHeight - padding.top - padding.bottom)
+                .attr('fill', 'grey').attr('fill-opacity', 0.1)
+
 
             var g = svg
                 .append("g") //向svg元素中添加一个g元素
@@ -107,12 +115,17 @@ export default {
                         : null;
                 });
 
-            var yAxis = d3.axisLeft(yscale);
+            var yAxis = d3.axisLeft(yscale).tickSize(-1 * (this.containerWidth - padding.right - padding.left));
 
             // 画布添加y轴
-            g.append("g") //添加g元素
-                // .attr("transform", "translate(100,200)") //设置偏移量 坐标轴的位置，可以通过 transform 属性来设定
-                .call(yAxis); //表示调用上面定义的函数实现执行该函数，和java通过方法名调用函数执行是一个原理，只是java不用通过call
+            g.append("g")
+                .call(yAxis)
+                .call(g => g.select(".domain")
+                    .remove())
+                .call(g => g.selectAll(".tick:not(:first-of-type) line")
+                    .attr("stroke-opacity", 0.5)
+                    .attr("stroke-width", 1)
+                    .attr("stroke-dasharray", "3,3"))
             // 添加x轴
             g.append("g") //添加g元素
                 .attr(
@@ -130,8 +143,11 @@ export default {
                 .attr("cy", function (d) {
                     return yscale(d.stop_order);
                 })
-                .attr("r", 2)
-                .attr("fill", "blue");
+                .attr("r", 1.5)
+                .attr("fill", this.color)
+                .attr('fill-opacity', 0.2)
+                .attr('stroke-width', 0.5)
+                .attr('stroke', this.color)
             for (var order in this.alldata[routeid]) {
                 var pathdata = [];
                 for (var j in this.alldata[routeid][order]) {
@@ -156,9 +172,9 @@ export default {
                 // 添加折线 添加path元素，并通过line()计算出值来赋值 path就是一个画图的路径
                 g.append("path")
                     .datum(pathdata)
-                    .attr("stroke-width", 2) //attr表示定义了一个类，这个类用于设置样式，和css中的类样式一样
+                    .attr("stroke-width", 0.5) //attr表示定义了一个类，这个类用于设置样式，和css中的类样式一样
                     .attr("d", line(pathdata))
-                    .attr("stroke", "blue")
+                    .attr("stroke", this.color)
                     .attr("fill", "none");
             }
 

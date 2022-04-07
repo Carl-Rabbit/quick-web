@@ -1,13 +1,32 @@
 <template>
-    <div>
-        <div
-                class="container"
-                style="position: relative; width: 100%; height: 100%"
-        >
+    <div >
+        <el-row class="mini_head" style="position: relative">
+            <el-col :span="4">
+                <div class="mini_title">Map View</div>
+            </el-col>
+
+            <el-col :span="8" >
+                <div>&nbsp;</div>
+            </el-col>
+
+            <el-col :span="3" style="text-align: left">
+                <div style="font-size: 12px; display: table-cell; bottom: 0px">
+                    Threshold: &nbsp;&nbsp;{{slideValue}}
+                </div>
+            </el-col>
+
+            <el-col :span="7">
+                <div>
+                    <input type="range" min="0" :max="contourSize" value="slideValue" class="slider" id="myRange" v-model="slideValue">
+                </div>
+            </el-col>
+        </el-row>
+        <div style="position: relative; width: 100%; height: calc(100% - 20px);">
+            <div>{{slideValue}}</div>
             <div
                     id="map"
                     class="map"
-                    style="width: 100%; height: 100%; z-index: 1"
+                    style="position: absolute; width: 100%; height: calc(100%); z-index: 1; top:0px"
             ></div>
             <svg
                     id="svgContainer"
@@ -15,22 +34,28 @@
                             width: 100%; height: 100%; "
             >
                 <g class="contour">
-                    <path v-for="(c, i) in contourRender" :key="i" stroke-linejoi="round"
-                          fill-opacity="0.1" stroke-opacity="0.5" :stroke-width="(i % 5 ? 0.25 : 1)"
-                          :d="c.path" :fill="c.fill" :stroke="'black'"
-                    ></path>
+                    <g  v-for="(c, i) in contourRender" :key="i">
+                        <path stroke-linejoi="round" v-if="i >= slideValue"
+                              fill-opacity="0.1" stroke-opacity="0.5" :stroke-width="(i % 5 ? 0.25 : 1)"
+                              :d="c.path" :fill="c.fill" :stroke="'black'"
+                        ></path>
+                    </g>
                 </g>
                 <g class="route" v-if="selectedRoute">
-                    <circle v-for="(c, i) in routeStations" :key="i" fill="none" r="3"
-                            :stroke="selectedRoute['type'] == 'up'? 'red': 'blue'"
+                    <circle v-for="(c, i) in routeStations" :key="i" r="3"
+                            :fill="selectedRoute['type'] == 'up'? '#ff7f0e': '#1f77b4'"
+                            fill-opacity="0.5"
+                            :stroke="selectedRoute['type'] == 'up'? '#ff7f0e': '#1f77b4'"
                             :cx="c.x" :cy="c.y"></circle>
                     <path v-if="routePath" stroke-width="1" :d="routePath"
-                          :stroke="selectedRoute['type'] == 'up'? 'red': 'blue'"
-                          fill="none"></path>
+                          :stroke="selectedRoute['type'] == 'up'? '#ff7f0e': '#1f77b4'"
+                          fill="none"
+                    ></path>
                 </g>
             </svg>
         </div>
     </div>
+
 </template>
 
 
@@ -46,6 +71,9 @@ export default {
     props:['station', 'alldata', 'selectedRoute', 'currentTime'],
     data(){
         return {
+            slideValue: 0,
+            maxLevel: 10,
+
             map: undefined,
 
             initBandWidth: 20,
@@ -65,7 +93,10 @@ export default {
 
         }
     },
-    computed:{
+    computed: {
+        contourSize(){
+            return this.contourRender.length;
+        },
         contourData(){
             // TODO: Need alldata and currentTime
             const parseTime = d3.timeParse("%H:%M:%S");
@@ -105,6 +136,7 @@ export default {
                     outputContour = arr[m];
                 }
             }
+
             return outputContour
         }
     },
@@ -126,10 +158,6 @@ export default {
             this.updateContour()
             this.updateSelectedRoute()
         });
-
-
-
-
     },
     watch:{
         selectedRoute(){
@@ -215,6 +243,7 @@ export default {
             this.contour = contours
             this.contourRender = []
             let max_d = d3.max(this.contour, (d) => d.value);
+            console.log('this.contour ------- ', this.contour)
             this.contour.forEach(c=>{
                 this.contourRender.push({
                     data: c,
@@ -313,5 +342,33 @@ export default {
 </script>
 
 <style scoped>
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 12px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.slider:hover {
+    opacity: 1;
+}
 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #1f77b4;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: #1f77b4;
+    cursor: pointer;
+}
 </style>
